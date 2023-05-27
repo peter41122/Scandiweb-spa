@@ -12,6 +12,7 @@ import reportWebVitals from "./reportWebVitals";
 import Store from "./_helpers/Store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+console.log("---------root------", root);
 root.render(
   <React.StrictMode>
     <Provider store={Store}>

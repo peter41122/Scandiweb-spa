@@ -5,7 +5,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "app.js",
-    path: path.resolve(__dirname, "build"),
+    path: path.resolve(__dirname, "public/assets"),
   },
   module: {
     // exclude node_modules
@@ -27,20 +27,27 @@ module.exports = {
     ],
   },
   // pass all js files through Babel
-  resolve: {
-    extensions: ["*", ".js", ".jsx"],
-  },
+  // resolve: {
+  //   extensions: ["*", ".js", ".jsx"],
+  // },
+  // performance: {
+  //   hints: false,
+  //   maxEntrypointSize: 512000,
+  //   maxAssetSize: 512000,
+  // },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "public", "index.html"),
-      favicon: path.join(__dirname, "public", "favicon.ico"),
+      // template: path.join(__dirname, "public", "index.html"),
+      template: "./server/views/index.blade.php",
+      // favicon: path.join(__dirname, "public", "favicon.ico"),
     }),
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, "build"),
+      directory: path.join(__dirname, "public"),
     },
     historyApiFallback: true,
-    port: 3000,
+    open: true,
+    // port: 8000,
   },
 };

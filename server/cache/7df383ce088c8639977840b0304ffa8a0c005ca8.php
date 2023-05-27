@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,7 +7,8 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <title>React App</title>
+    <title>Rustam - Scandiweb assignment</title>
+    <base href="/">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -24,4 +24,6 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script src="./assets/app.js"></script>
 </html>
+<?php /**PATH D:\MainWorks\Scandiweb\scandiweb-spa\server\views/index.blade.php ENDPATH**/ ?>

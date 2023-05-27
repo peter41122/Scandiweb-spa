@@ -30,7 +30,7 @@ function ProductList() {
   ];
 
   useEffect(() => {
-    // dispatch(productActions.getProducts());
+    dispatch(productActions.getProducts());
   }, [dispatch]);
 
   const isEmpty = (obj) => {
@@ -46,7 +46,7 @@ function ProductList() {
         <button
           type="button"
           className="btn btn-primary btn-sm px-3 me-3"
-          onClick={() => handleClick("/newproduct")}
+          onClick={() => handleClick("/product/new")}
         >
           ADD
         </button>

@@ -13,10 +13,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/product" element={<ProductList />} />
-          <Route path="/newproduct" element={<NewProduct />} />
+          <Route path="/product/list" element={<ProductList />} />
+          <Route path="/product/new" element={<NewProduct />} />
 
-          <Route path="/*" element={<Navigate replace to="/product" />} />
+          <Route path="/*" element={<Navigate replace to="/product/list" />} />
         </Routes>
       </BrowserRouter>
       <Footer />

@@ -1,0 +1,24 @@
+{
+    "name": "rustam/scandiweb",
+    "description": "Mid-senior & Senior Web Developer test assignment",
+    "type": "php",
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "server/Helpers/helpers.php"
+        ],
+        "psr-4": {
+            "Rustam\\Scandiweb\\": "server/"
+        }
+    },
+    "authors": [
+        {
+            "name": "rustam41122",
+            "email": "rustkanz@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "jenssegers/blade": "dev-master"
+    }
+}
