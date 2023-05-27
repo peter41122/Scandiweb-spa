@@ -1,0 +1,31 @@
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 3;
+
+  .bg-scroll-show {
+    background-color: lightgray;
+  }
+  .navbar {
+    .navbar-brand {
+      color: #013ca1;
+      font-style: italic;
+      font-weight: bold;
+      text-shadow: 1px 1px white;
+      font-size: 20px;
+    }
+  }
+}
+
+footer {
+  background-color: darkslategray;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+}
