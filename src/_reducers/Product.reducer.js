@@ -1,5 +1,5 @@
 const initialstate = {
-  date: {},
+  data: {},
 };
 
 const Product = (state = initialstate, action) => {
