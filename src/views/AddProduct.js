@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import productActions from "../_actions/Product.actions";
+
+import { productActions } from "../_store";
+
 import Header from "../components/common/Header";
-import { ProdTypeConsts } from "../_constants/Product.constants";
+
 import { BookInfo, DVDInfo, FurnitureInfo } from "../components/product";
 import "../assets/styles/addproduct-page.scss";
+
+const ProdTypeConsts = {
+  DVD: "DVD",
+  BOOK: "Book",
+  FURNITURE: "Furniture",
+};
 
 function AddProduct(props) {
   const navigate = useNavigate();

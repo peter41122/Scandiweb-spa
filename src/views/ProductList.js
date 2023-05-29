@@ -2,9 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-// import { productActions } from "../_store";
+import { productActions } from "../_store";
 
-import productActions from "../_actions/Product.actions";
 import Header from "../components/common/Header";
 
 import { ProductCard } from "../components/product";
@@ -12,11 +11,11 @@ import { ProductCard } from "../components/product";
 function ProductList() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const store = useSelector(state => state.Product);
+  const store = useSelector((state) => state.Products);
 
   useEffect(() => {
-    dispatch(productActions.getProducts());
-  }, [dispatch]);
+    dispatch(productActions.getAll());
+  }, []);
 
   const isEmpty = (obj) => {
     for (var key in obj) {
@@ -51,17 +50,11 @@ function ProductList() {
       <Header />
       <div className="py-5 px-5">
         <div className="row row-cols-1 row-cols-xs-2 row-cols-sm-3 row-cols-md-4 g-4 py-5">
-          {
-            !isEmpty(store.data.entity) ? (
-              store.data.entity.map((product, i) => (
-                <div className="col" key={i}>
-                  <ProductCard product={product} />
-                </div>
-              ))
-            ) : (
-              <div>No products to show.</div>
-            )
-          }
+          {store?.products?.data?.entity?.map((product, i) => (
+            <div className="col" key={i}>
+              <ProductCard product={product} />
+            </div>
+          ))}
         </div>
         {renderButtons()}
       </div>

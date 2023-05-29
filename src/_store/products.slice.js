@@ -38,7 +38,6 @@ function createExtraActions() {
   };
 
   function getAll() {
-    console.log("getAll ----- here");
     return createAsyncThunk(
       `${name}/getAll`,
       async () => await axios.get(baseUrl, { headers })
