@@ -10,9 +10,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import Store from "./_helpers/Store";
+// import { store } from "./_store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-console.log("---------root------", root);
 root.render(
   <React.StrictMode>
     <Provider store={Store}>

@@ -27,19 +27,19 @@ module.exports = {
     ],
   },
   // pass all js files through Babel
-  // resolve: {
-  //   extensions: ["*", ".js", ".jsx"],
-  // },
-  // performance: {
-  //   hints: false,
-  //   maxEntrypointSize: 512000,
-  //   maxAssetSize: 512000,
-  // },
+  resolve: {
+    extensions: ["*", ".js", ".jsx"],
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       // template: path.join(__dirname, "public", "index.html"),
       template: "./server/views/index.blade.php",
-      // favicon: path.join(__dirname, "public", "favicon.ico"),
+      favicon: path.join(__dirname, "public", "favicon.ico"),
     }),
   ],
   devServer: {
@@ -48,6 +48,6 @@ module.exports = {
     },
     historyApiFallback: true,
     open: true,
-    // port: 8000,
+    port: 8000,
   },
 };

@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+// import { productActions } from "../_store";
+
 import productActions from "../_actions/Product.actions";
 import Header from "../components/common/Header";
 
@@ -9,7 +12,7 @@ import { ProductCard } from "../components/product";
 function ProductList() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const store = useSelector((state) => state.Product);
+  const store = useSelector((state) => state.entity);
 
   const products = [
     { id: 1, sku: "PD001", name: "Book1", price: "25" },
@@ -31,6 +34,7 @@ function ProductList() {
 
   useEffect(() => {
     dispatch(productActions.getProducts());
+    console.log("---------", store);
   }, [dispatch]);
 
   const isEmpty = (obj) => {
