@@ -10,9 +10,9 @@ import { BookInfo, DVDInfo, FurnitureInfo } from "../components/product";
 import "../assets/styles/addproduct-page.scss";
 
 const ProdTypeConsts = {
-  DVD: "DVD",
-  BOOK: "Book",
-  FURNITURE: "Furniture",
+  DVD: 1,
+  BOOK: 3,
+  FURNITURE: 2,
 };
 
 function AddProduct(props) {
@@ -38,11 +38,44 @@ function AddProduct(props) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
-    // dispatch(productActions.addProduct());
-    console.log("-----", productInfo);
-  };
+    try {
+      let prodInfo = {
+        sku: productInfo.sku,
+        name: productInfo.name,
+        price: productInfo.price,
+        type: productType,
+        type_value: {},
+      };
+      switch (productType) {
+        case ProdTypeConsts.DVD:
+          prodInfo.type_value = {
+            size: productInfo.size,
+          };
+          break;
+        case ProdTypeConsts.BOOK:
+          prodInfo.type_value = {
+            weight: productInfo.weight,
+          };
+          break;
+        case ProdTypeConsts.FURNITURE:
+          prodInfo.type_value = {
+            width: productInfo.width,
+            height: productInfo.height,
+            length: productInfo.length,
+          };
+          break;
+        default:
+          break;
+      }
+      await dispatch(productActions.register(prodInfo)).unwrap();
+      navigate("/products/list");
+    } catch (error) {
+      console.log(error);
+    }
+    // console.log("-----", productInfo);
+  }
 
   const handleProductTypeChange = (e) => {
     switch (e.target.value) {

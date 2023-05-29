@@ -44,12 +44,17 @@ function createExtraActions() {
     );
   }
 
-  function register() {}
+  function register() {
+    return createAsyncThunk(
+      `${name}/register`,
+      async (product) => await axios.post(baseUrl, product)
+    )
+  }
 
   function _delete() {
     return createAsyncThunk(
       `${name}/delete`,
-      async (id) => await axios.delete(`${baseUrl}/${id}`)
+      async (id) => await axios.delete(`delete-products/${product_ids}`)
     );
   }
 }
