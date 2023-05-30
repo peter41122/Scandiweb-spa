@@ -153,14 +153,14 @@ function AddProduct(props) {
     return (
       <div className="button-panel">
         <button type="submit" className="btn btn-primary btn-sm px-3 me-3">
-          SAVE
+          Save
         </button>
         <button
           type="button"
           className="btn btn-danger btn-sm px-3 me-4"
           onClick={() => handleClick("/")}
         >
-          CANCEL
+          Cancel
         </button>
       </div>
     );
