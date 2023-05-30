@@ -2,3 +2,4 @@
 - npm install
 - npm build
 - serve php as public/index.php
+- execute scandiweb.sql file to mysql db and update .env information
