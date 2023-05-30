@@ -52,7 +52,7 @@ class Model implements ModelInterface
             $result;
     }
 
-    public function delete(string $Id, string $columnName = 'id')
+    public function delete(array $Id, string $columnName = 'id')
     {
         return $this->modelService->delete($Id, $columnName);
     }

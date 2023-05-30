@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../assets/styles/productcard.scss";
 
-function ProductCard({ product }) {
+function ProductCard({ product, handleCheckBox }) {
+  const [checked, setChecked] = useState(false);
+
   const onSubmit = (e) => {
     e.preventDefault();
+  };
+
+  const handleCheck = (e) => {
+    setChecked(!checked);
+    handleCheckBox({id: e.target.id, value: !checked})
   };
 
   return (
@@ -20,14 +27,15 @@ function ProductCard({ product }) {
                 type="checkbox"
                 value={product.id}
                 id={product.id}
+                onClick={(e) => handleCheck(e)}
               />
               <label className="form-check-label" htmlFor={product.id}>
-                SKU: {product.sku}
+                {product.sku}
               </label>
             </div>
           </form>
-          <h5>Name: {product.name}</h5>
-          <p>Price: ${product.price}</p>
+          <h5>{product.name}</h5>
+          <p>${product.price}</p>
         </div>
       </div>
     </>

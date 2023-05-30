@@ -19,6 +19,6 @@ interface ModelServiceInterface
 
     public function create(array $createData);
 
-    public function delete(string $Id, string $columnName);
+    public function delete(array $Id, string $columnName);
 
 }

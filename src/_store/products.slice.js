@@ -20,7 +20,6 @@ function createInitialState() {
 }
 
 function createExtraActions() {
-  const baseUrl = `/products`;
   const headers = {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
@@ -40,21 +39,24 @@ function createExtraActions() {
   function getAll() {
     return createAsyncThunk(
       `${name}/getAll`,
-      async () => await axios.get(baseUrl, { headers })
+      async () => await axios.get("/products", { headers })
     );
   }
 
   function register() {
     return createAsyncThunk(
       `${name}/register`,
-      async (product) => await axios.post(baseUrl, product)
-    )
+      async (product) => await axios.post("/products", product)
+    );
   }
 
   function _delete() {
     return createAsyncThunk(
-      `${name}/delete`,
-      async (id) => await axios.delete(`delete-products/${product_ids}`)
+      `${name}/deleteProduct`,
+      async function (product_ids, { dispatch }) {
+        await axios.post("/delete-products", { product_ids });
+        dispatch(productActions.getAll());
+      }
     );
   }
 }
@@ -62,7 +64,6 @@ function createExtraActions() {
 function createExtraReducers() {
   return (builder) => {
     getAll();
-    _delete();
 
     function getAll() {
       var { pending, fulfilled, rejected } = extraActions.getAll;
@@ -76,28 +77,6 @@ function createExtraReducers() {
         .addCase(rejected, (state, action) => {
           state.products = { error: action.error };
         });
-    }
-
-    function _delete() {
-      //   var { pending, fulfilled, rejected } = extraActions.getAll;
-      //   builder
-      //     .addCase(pending, (state, action) => {
-      //       const product = state.list.value.find(
-      //         (item) => item.id === action.meta.arg
-      //       );
-      //       product.isDeleting = true;
-      //     })
-      //     .addCase(fulfilled, (state, action) => {
-      //       state.list.value = state.list.value.filter(
-      //         (item) => item.id !== action.meta.arg
-      //       );
-      //     })
-      //     .addCase(rejected, (state, action) => {
-      //       const product = state.list.value.find(
-      //         (item) => item.id === action.meta.arg
-      //       );
-      //       product.isDeleting = false;
-      //     });
     }
   };
 }

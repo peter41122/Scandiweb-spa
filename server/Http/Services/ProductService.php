@@ -42,7 +42,7 @@ class ProductService
         return $res;
     }
 
-    public function deleteProduct(string $productIds)
+    public function deleteProduct(array $productIds)
     {
         $this->productModel->delete($productIds);
         $this->productTypeModel->delete($productIds, 'product_id');

@@ -59,6 +59,6 @@ final class ProductController
      */
     public function deleteProduct()
     {
-        return $this->service->deleteProduct($this->request->product_id);
+        return $this->service->deleteProduct($this->request->product_ids);
     }   
 }

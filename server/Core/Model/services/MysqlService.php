@@ -141,7 +141,7 @@ final class MysqlService implements ModelServiceInterface
         return $result ? $this->connection->lastInsertId() : $result;
     }
 
-    public function delete(string $Id, string $columnName)
+    public function delete(array $Id, string $columnName)
     {
         $id = is_array($Id) ? implode(",", $Id) : $Id;
         $condition = is_array($Id) ? "IN ($id)" : "= $id";
