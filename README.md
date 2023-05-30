@@ -1,0 +1,4 @@
+- composer install
+- npm install
+- npm build
+- serve php as public/index.php

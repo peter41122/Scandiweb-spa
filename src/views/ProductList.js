@@ -44,9 +44,7 @@ function ProductList() {
   };
 
   async function handleDelClick() {
-    console.log("--dele--", selectedItem);
     const product_ids = getKeyByValue(selectedItem, true);
-    console.log("--dele-array--", product_ids);
     try {
       await dispatch(productActions._delete(product_ids)).unwrap();
     } catch (error) {
