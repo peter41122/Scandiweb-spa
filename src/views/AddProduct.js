@@ -10,9 +10,9 @@ import { BookInfo, DVDInfo, FurnitureInfo } from "../components/product";
 import "../assets/styles/addproduct-page.scss";
 
 const ProdTypeConsts = {
-  DVD: 1,
-  BOOK: 3,
-  FURNITURE: 2,
+  DVD: "DVD",
+  BOOK: "BOOK",
+  FURNITURE: "FURNITURE",
 };
 
 function AddProduct(props) {
@@ -74,12 +74,12 @@ function AddProduct(props) {
     } catch (error) {
       console.log(error);
     }
-    // console.log("-----", productInfo);
   }
 
   const handleProductTypeChange = (e) => {
     switch (e.target.value) {
       case ProdTypeConsts.DVD:
+        console.log("DVD>>>", e.target.value, ProdTypeConsts.DVD)
         setProductInfo({
           ...productInfo,
           size: "",
@@ -90,6 +90,7 @@ function AddProduct(props) {
         });
         break;
       case ProdTypeConsts.BOOK:
+        console.log("BOOK>>>", e.target.value, ProdTypeConsts.BOOK)
         setProductInfo({
           ...productInfo,
           size: null,
@@ -100,6 +101,7 @@ function AddProduct(props) {
         });
         break;
       case ProdTypeConsts.FURNITURE:
+        console.log("FURNITURE>>>", e.target.value, ProdTypeConsts.FURNITURE)
         setProductInfo({
           ...productInfo,
           size: null,
@@ -249,10 +251,10 @@ function AddProduct(props) {
                     <option value="DVD" id="DVD">
                       DVD
                     </option>
-                    <option value="Furniture" id="Furniture">
+                    <option value="FURNITURE" id="Furniture">
                       Furniture
                     </option>
-                    <option value="Book" id="Book">
+                    <option value="BOOK" id="Book">
                       Book
                     </option>
                   </select>

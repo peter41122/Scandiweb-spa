@@ -45,10 +45,14 @@ function ProductList() {
 
   async function handleDelClick() {
     const product_ids = getKeyByValue(selectedItem, true);
-    try {
-      await dispatch(productActions._delete(product_ids)).unwrap();
-    } catch (error) {
-      console.log(error);
+    if (!product_ids || product_ids.length === 0) {
+      alert("Please select item(s) what you want to delete.");
+    } else {
+      try {
+        await dispatch(productActions._delete(product_ids)).unwrap();
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../assets/styles/productcard.scss";
 
 function ProductCard({ product, handleCheckBox }) {
   const [checked, setChecked] = useState(false);
+  const [description, setDescription] = useState({});
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -10,8 +11,12 @@ function ProductCard({ product, handleCheckBox }) {
 
   const handleCheck = (e) => {
     setChecked(!checked);
-    handleCheckBox({id: e.target.id, value: !checked})
+    handleCheckBox({ id: e.target.id, value: !checked });
   };
+
+  useEffect(() => {
+    setDescription(JSON.parse(product.value));
+  }, [product]);
 
   return (
     <>
@@ -34,8 +39,15 @@ function ProductCard({ product, handleCheckBox }) {
               </label>
             </div>
           </form>
-          <h5>{product.name}</h5>
+          <h5 className="mb-3">{product.name}</h5>
           <p>${product.price}</p>
+          {description.size ? <p>{description.size} MB</p> : undefined}
+          {description.height ? (
+            <p>
+              {description.width} x {description.height} x {description.length}
+            </p>
+          ) : undefined}
+          {description.weight ? <p>{description.weight} KG</p> : undefined}
         </div>
       </div>
     </>

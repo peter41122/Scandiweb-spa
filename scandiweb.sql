@@ -34,11 +34,11 @@ CREATE TABLE `product` (
 -- Records of product
 -- ----------------------------
 BEGIN;
-INSERT INTO `product` VALUES (1, 'PD001', 'DVD1', '35', '1');
-INSERT INTO `product` VALUES (2, 'PD002', 'Book1', '10', '3');
-INSERT INTO `product` VALUES (3, 'PD003', 'Furniture1', '1800', '2');
-INSERT INTO `product` VALUES (4, 'PD004', 'DVD2', '120', '1');
-INSERT INTO `product` VALUES (5, 'PD005', 'Furniture1', '2400', '2');
+INSERT INTO `product` VALUES (1, 'PD001', 'DVD1', '35', 'DVD');
+INSERT INTO `product` VALUES (2, 'PD002', 'Book1', '10', 'BOOK');
+INSERT INTO `product` VALUES (3, 'PD003', 'Furniture1', '1800', 'FURNITURE');
+INSERT INTO `product` VALUES (4, 'PD004', 'DVD2', '120', 'DVD');
+INSERT INTO `product` VALUES (5, 'PD005', 'Furniture1', '2400', 'FURNITURE');
 COMMIT;
 
 -- ----------------------------
@@ -56,9 +56,9 @@ CREATE TABLE `product_type` (
 BEGIN;
 INSERT INTO `product_type` VALUES (1, '{\"size\": \"42\"}');
 INSERT INTO `product_type` VALUES (2, '{\"weight\": \"5\"}');
-INSERT INTO `product_type` VALUES (3, '{\"width\": \"15\", \"height\": \"12\", \"lenght\": \"40\"}');
+INSERT INTO `product_type` VALUES (3, '{\"width\": \"15\", \"height\": \"12\", \"length\": \"40\"}');
 INSERT INTO `product_type` VALUES (4, '{\"size\": \"33\"}');
-INSERT INTO `product_type` VALUES (5, '{\"width\": \"23\", \"height\": \"38\", \"lenght\": \"21\"}');
+INSERT INTO `product_type` VALUES (5, '{\"width\": \"23\", \"height\": \"38\", \"length\": \"21\"}');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

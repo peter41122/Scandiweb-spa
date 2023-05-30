@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import Footer from "./components/common/Footer";
 
@@ -11,14 +11,14 @@ import "./assets/styles/App.scss";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/product/list" element={<ProductList />} />
           <Route path="/product/new" element={<NewProduct />} />
 
           <Route path="/*" element={<Navigate replace to="/product/list" />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
       <Footer />
     </div>
   );
